@@ -20,6 +20,7 @@
 | `git checkout -b <new_branch>`               | Create & switch to new branch |
 | `git merge <branch>`                         | Merge branch                  |
 | `git log --oneline --graph --all`            | Show commit history           |
+| `git push --force origin main`               | Forcefully push content       |
 
 ---
 
