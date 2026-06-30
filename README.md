@@ -157,6 +157,13 @@
 
 # 9. Useful One-Liners
 
+### Change Docker permission 
+
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
 ### Stop all running Docker containers
 
 ```bash
