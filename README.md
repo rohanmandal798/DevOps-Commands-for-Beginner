@@ -45,6 +45,90 @@
 
 ---
 
+# 3. K3s 
+
+## Installation
+
+| Command                                | Description              |
+| -------------------------------------- | ------------------------ |
+| `curl -sfL https://get.k3s.io \| sh -` | Install K3s              |
+| `sudo systemctl status k3s`            | Check K3s service status |
+| `sudo systemctl start k3s`             | Start K3s service        |
+| `sudo systemctl stop k3s`              | Stop K3s service         |
+| `sudo systemctl restart k3s`           | Restart K3s service      |
+
+## Cluster Commands
+
+| Command                          | Description                    |
+| -------------------------------- | ------------------------------ |
+| `sudo kubectl cluster-info`      | Show cluster information       |
+| `sudo kubectl get nodes`         | List all nodes                 |
+| `sudo kubectl get nodes -o wide` | Show detailed node information |
+
+## Pod Commands
+
+| Command                                       | Description                    |
+| --------------------------------------------- | ------------------------------ |
+| `sudo kubectl run my-nginx --image=nginx`     | Create a Pod                   |
+| `sudo kubectl get pods`                       | List Pods in current namespace |
+| `sudo kubectl get pods -A`                    | List Pods in all namespaces    |
+| `sudo kubectl get pods -o wide`               | Show Pod IP and Node           |
+| `sudo kubectl get pods --show-labels`         | Show Pod labels                |
+| `sudo kubectl describe pod my-nginx`          | Show Pod details               |
+| `sudo kubectl logs my-nginx`                  | View Pod logs                  |
+| `sudo kubectl exec -it my-nginx -- /bin/bash` | Enter Pod using Bash           |
+| `sudo kubectl exec -it my-nginx -- /bin/sh`   | Enter Pod using Shell          |
+| `sudo kubectl delete pod my-nginx`            | Delete a Pod                   |
+
+## Deployment Commands
+
+| Command                                                 | Description             |
+| ------------------------------------------------------- | ----------------------- |
+| `sudo kubectl create deployment my-nginx --image=nginx` | Create Deployment       |
+| `sudo kubectl get deployments`                          | List Deployments        |
+| `sudo kubectl describe deployment my-nginx`             | Show Deployment details |
+| `sudo kubectl delete deployment my-nginx`               | Delete Deployment       |
+
+## Scaling Commands
+
+| Command                                               | Description     |
+| ----------------------------------------------------- | --------------- |
+| `sudo kubectl scale deployment my-nginx --replicas=1` | Scale to 1 Pod  |
+| `sudo kubectl scale deployment my-nginx --replicas=2` | Scale to 2 Pods |
+| `sudo kubectl scale deployment my-nginx --replicas=3` | Scale to 3 Pods |
+| `sudo kubectl scale deployment my-nginx --replicas=4` | Scale to 4 Pods |
+
+## Service Commands
+
+| Command                                                              | Description              |
+| -------------------------------------------------------------------- | ------------------------ |
+| `sudo kubectl expose deployment my-nginx --port=80 --type=ClusterIP` | Create ClusterIP Service |
+| `sudo kubectl expose deployment my-nginx --type=NodePort --port=80`  | Create NodePort Service  |
+| `sudo kubectl get services`                                          | List Services            |
+| `sudo kubectl describe service my-nginx`                             | Show Service details     |
+| `sudo kubectl delete service my-nginx`                               | Delete Service           |
+
+
+## YAML Commands
+
+| Command                                   | Description                       |
+| ----------------------------------------- | --------------------------------- |
+| `nano development.yaml`                   | Create/Edit YAML file             |
+| `cat development.yaml`                    | Display YAML file                 |
+| `sudo kubectl apply -f development.yaml`  | Create/Update resources from YAML |
+| `sudo kubectl delete -f development.yaml` | Delete resources defined in YAML  |
+
+## Resource Monitoring Commands
+
+| Command                        | Description             |
+| ------------------------------ | ----------------------- |
+| `sudo kubectl get pods`        | Check Pod status        |
+| `sudo kubectl get deployments` | Check Deployment status |
+| `sudo kubectl get services`    | Check Service status    |
+| `sudo kubectl get nodes`       | Check Node status       |
+
+---
+
 # 3. Kubernetes (kubectl) Commands
 
 | Command                                    | Description                    |
